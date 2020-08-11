@@ -1,0 +1,19 @@
+
+h1{
+  padding: 5px;
+  font-size: 2em;
+  width:400px;
+  margin:2px;
+}
+h2{
+  padding: 5px; 
+  font-size: 1.5em;
+  width:300px;
+  margin:2px;
+}
+ul{
+  padding:5px;
+}
+li{
+  line-height: 20px;
+}
