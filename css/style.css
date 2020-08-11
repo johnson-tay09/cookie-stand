@@ -1,19 +1,87 @@
-
-h1{
-  padding: 5px;
-  font-size: 2em;
-  width:400px;
-  margin:2px;
-}
-h2{
-  padding: 5px; 
-  font-size: 1.5em;
-  width:300px;
-  margin:2px;
-}
-ul{
-  padding:5px;
-}
-li{
-  line-height: 20px;
-}
+body{
+  font-size: 80%;
+    /* font-family: "Courier New", Courier, monospace; */
+    letter-spacing: .05em;
+    background-color: #efefef;
+  }
+  #page{
+    max-width: 1000px;
+    min-width: 700px;
+    margin: 10px auto 25px auto;
+    padding: 20px;
+    border: 4px double #000;
+    background-color:rgb(133, 187, 248);  
+  }
+  h1{
+    font-family: Georgia;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 2em;
+    width:400px;
+    margin: 10px auto 10px auto;
+    box-shadow: 5px 5px 5px #222222;
+    background-color:rgba(253, 165, 216,0.6);
+  }
+  h2{
+    font-family: Verdana;
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 1.5em;
+    width:300px;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    box-shadow: 5px 5px 5px #222222;
+    color: white;
+    background-color:rgb(19, 43, 36);
+    
+  }
+  p{
+    text-align: cetner;
+    width: 600px;
+    margin: 20px auto 20px auto;
+    font-weight: normal;
+  }
+  ol{
+    text-align: center;
+    list-style-position: inside;
+    list-style-type: decimal;
+    margin: 0px auto 0px auto;
+    padding-right: 40px;
+    line-height: 16px; 
+  }
+  ul{
+    text-align: center;
+    list-style-position: inside;
+    list-style: square inside;
+    line-height: 16px;
+    margin: 0px auto 0px auto;
+  
+  }
+  a{
+    color: rgb(0,0,0);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  a:hover, a.on{
+    color: rgb(0, 0, 0);
+    background-color: rgb(203, 223, 144);
+  }
+  img{
+    border-radius: 10px;
+  }
+  #nav-bar{
+    width: 570px;
+    padding: 15px;
+    margin: 0px auto 0px auto;
+    border-top: 1px solid rgb(0,0,0);
+    border-bottom: 1px solid rgb(0,0,0);
+    text-align: center;  
+  }
+  #nav-bar li{
+    display: inline;
+    margin: 0px 3px;
+  }
+  #author{
+    font-style: italic;
+  }
