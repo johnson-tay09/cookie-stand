@@ -348,7 +348,28 @@ function generateHeader(){
   tableHead3.textContent = 'Daily Location Total';
   tableRow.appendChild(tableHead3);
 }
-//call the function to make the city names on each row
+// function generateFooter(){
+//   //create a tr element
+//   var tableRow = document.createElement('tr');
+//   // append tr to parent
+//   var tableHead = document.createElement('th');
+//   tableHead.textContent = ' ';
+//   tableRow.appendChild(tableHead);
+//   parentTable.appendChild(tableRow);
+//   for(var i=0; i<timeArry.length; i++){
+//     //create a th element
+//     var tableHead2 = document.createElement('th');
+//     // give th text content time
+//     tableHead2.textContent = `${timeArry[i]}`;
+//     //append to tr
+//     tableRow.appendChild(tableHead2);
+//   }
+//   // add daily location totals
+//   var tableHead3 = document.createElement('th');
+//   tableHead3.textContent = 'Daily Location Total';
+//   tableRow.appendChild(tableHead3);
+// }
+
 
 City.prototype.renderTableList = function(){
   // create a tr
@@ -374,6 +395,7 @@ City.prototype.renderTableList = function(){
   // append to the tr
   tableRow.appendChild(totalData);
 };
+// generateFooter();
 generateHeader();
 for(var n=0; n<cityArry.length; n++){
   cityArry[n].renderTableList();
