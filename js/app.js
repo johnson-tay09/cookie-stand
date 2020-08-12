@@ -124,7 +124,7 @@ function generateFooter(){
   tableRow.appendChild(tableData);
   //this for depends on each hour
   for(var i=0; i<timeArry.length; i++){
-        //create a table data cell
+    //create a table data cell
     var cookieData = document.createElement('td');
     var dailyCookies = 0;
     for(var j=0; j<cityArry.length; j++){
@@ -145,14 +145,14 @@ function generateFooter(){
   totalData.textContent = grandTotal;
   // append to the tr
   tableRow.appendChild(totalData);
-};
+}
 
 //create a loop for calling the renderTableList function for each object.
 function generateContent(){
   for(var n=0; n<cityArry.length; n++){
     cityArry[n].renderTableList();
     // cityArry[n].renderFooter();
-}
+  }
 }
 
 //call our function to create the header

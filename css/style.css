@@ -13,18 +13,19 @@ body{
     background-color:rgb(133, 187, 248);  
   }
   h1{
-    font-family: Georgia;
+    color: rgb(19, 43, 36);
+    font-family: 'Luckiest Guy' ;
     text-align: center;
     padding: 5px;
     border: 1px solid black;
-    font-size: 2em;
+    font-size: 2.2em;
     width:400px;
     margin: 10px auto 10px auto;
     box-shadow: 5px 5px 5px #222222;
     background-color:rgba(253, 165, 216,0.6);
   }
   h2{
-    font-family: Verdana;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 5px;
     border: 1px solid rgb(0, 0, 0);
     font-size: 1.5em;
@@ -32,11 +33,13 @@ body{
     margin: 10px auto 10px auto;
     text-align: center;
     box-shadow: 5px 5px 5px #222222;
-    color: white;
+    color: rgba(253, 165, 216,1);
     background-color:rgb(19, 43, 36);
     
   }
   p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     text-align: cetner;
     width: 600px;
     margin: 20px auto 20px auto;
@@ -51,12 +54,20 @@ body{
     line-height: 16px; 
   }
   ul{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     text-align: center;
     list-style-position: inside;
-    list-style: square inside;
+    /* list-style: square inside; */
     line-height: 16px;
     margin: 0px auto 0px auto;
   
+  }
+  .city{
+    padding: 8px;
+    /* line-height: 20px; */
+    font-size: 18px;
+    font-weight: bold;
   }
   a{
     color: rgb(0,0,0);
@@ -69,6 +80,10 @@ body{
   }
   img{
     border-radius: 10px;
+    display: block;
+    margin-left: 25%;
+    margin-right:50%;
+    width: 50%;
   }
   #nav-bar{
     width: 570px;
@@ -91,8 +106,17 @@ body{
     font-size: 12px;
   }
   td{
+    background-color: rgba(253, 165, 216,0.6);;
     border: 1px solid black;
     padding:5px;
     font-weight: bold;
     font-size: 18px;
   }
+.italic{
+  font-style: italic;
+}
+/* #salmon img{
+  margin: 0px auto 0px auto;
+  width: 400px;
+
+} */
