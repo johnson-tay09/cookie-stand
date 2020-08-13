@@ -49,7 +49,8 @@ function formSubmit(event){
   var inputAvgPerCustomer = parseInt(event.target.avgPerCustomer.value);
   new City(inputLocation, inputMin, inputMax, inputAvgPerCustomer);
   console.log(cityArry);
-  //fishForm. look up inner HTML functions
+  //reset HTML elemnts tied to parentTable
+  parentTable.innerHTML = '';
   cookieMath();
   generateHeader();
   generateContent();
@@ -146,6 +147,7 @@ function generateFooter(){
   // append to the tr
   tableRow.appendChild(tableData);
   //this for depends on each hour
+  var grandTotal = 0;
   for(var i=0; i<timeArry.length; i++){
     //create a table data cell
     var cookieData = document.createElement('td');
@@ -161,7 +163,7 @@ function generateFooter(){
   }
   //populate total cookies per day
   var totalData = document.createElement('td');
-  var grandTotal = 0;
+ 
   for(var n=0; n<cityArry.length; n++){
     grandTotal += cityArry[n].totalCookiesPerDay;
   }
