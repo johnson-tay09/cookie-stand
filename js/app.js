@@ -17,7 +17,9 @@ for (var t=0; t<14; t++){
 var cityArry=[];
 //select table element by id
 var parentTable = document.getElementById('table');
-//make a contstructor function to generate multiple objects that share keys
+//select listener variable globally
+var fishForm = document.getElementById('form');
+//make a contstructor function to generate multiple objects that share keys--------------------------------------
 function City(name, minCookie, maxCookie, avgSale){
   this.cityName = name;
   this.minCookie = minCookie;
@@ -28,37 +30,58 @@ function City(name, minCookie, maxCookie, avgSale){
   this.totalCookiesPerDay = 0;
   cityArry.push(this); //pushes object into cityArr
 }
-var seattle = new City('Seattle',23, 65, 6.3); //instances of the constructor object
+var seattle = new City('Seattle',23, 65, 6.3); //instances of the constructor object-------------------------------
 var tokyo = new City('Tokyo',3, 24, 1.2);
 var dubai = new City('Dubai',11, 38, 3.7);
 var paris = new City('Paris',20, 38, 2.3);
 var lima = new City('Lima',2, 16, 4.6);
 
+//function for what happens when submit occurs, it adds a new city from the form information----------
+function formSubmit(event){
+  event.preventDefault();
+  console.log('this is mylocationName.value', event.target.locationName.value);
+  console.log('this is my minCookies.value', event.target.minCookies.value);
+  console.log('this is my maxCookies.value', event.target.maxCookies.value);
+  console.log('this is my avgPerCustomer.value', event.target.avgPerCustomer.value);
+  var inputLocation = event.target.locationName.value;
+  var inputMin = parseInt(event.target.minCookies.value);
+  var inputMax= parseInt(event.target.maxCookies.value);
+  var inputAvgPerCustomer = parseInt(event.target.avgPerCustomer.value);
+  new City(inputLocation, inputMin, inputMax, inputAvgPerCustomer);
+  console.log(cityArry);
+  //fishForm. look up inner HTML functions
+  cookieMath();
+  generateHeader();
+  generateContent();
+  generateFooter();
+}
+fishForm.addEventListener('submit', formSubmit);
 //constructor prototype new object have access to proto functions: This generate a random customer count based on min/max
 City.prototype.randomCustomer = function(){
   return Math.ceil(Math.random() * (this.maxCookie - this.minCookie + 1)) + this.minCookie;
 };
-
-//loops through city object array
-for(var i=0; i<cityArry.length; i++){
-  var total = 0;
-  //@ i run 2nd loop 13 times or hours.length
-  for(var j=0; j<timeArry.length; j++){
+//loops through city object array calculating random customers per hour and cookie sales per hour based on that.
+function cookieMath(){
+  for(var i=0; i<cityArry.length; i++){
+    var total = 0;
+    //@ i run 2nd loop 13 times or hours.length
+    for(var j=0; j<timeArry.length; j++){
     //this sets a variable for random customer per hour and calculates it useing randomCustomer proto
-    var hourCust = cityArry[i].randomCustomer();
-    //this finds the average sale per hour by multiplying the hourCust by the key in our object labeled avgSale
-    var hourSale = hourCust*cityArry[i].avgSale;
-    //inside the object @ cityArry[i], access the randomHourSale (which is an array) key and pushes the hourSale value rounded up into it.
-    cityArry[i].randomHourSale.push(Math.ceil(hourSale));
-    total += hourSale;
-  }
-  //sends the total cookie value to the key of the object.
-  cityArry[i].totalCookiesPerDay = Math.ceil(total);
+      var hourCust = cityArry[i].randomCustomer();
+      //this finds the average sale per hour by multiplying the hourCust by the key in our object labeled avgSale
+      var hourSale = hourCust*cityArry[i].avgSale;
+      //inside the object @ cityArry[i], access the randomHourSale (which is an array) key and pushes the hourSale value rounded up into it.
+      cityArry[i].randomHourSale.push(Math.ceil(hourSale));
+      total += hourSale;
+    }
+    //sends the total cookie value to the key of the object.
+    cityArry[i].totalCookiesPerDay = Math.ceil(total);
   // console.log('this is the average sale per hour', cityArry[i].randomHourSale);
   // console.log('this is the total cookies', cityArry[i].totalCookiesPerDay);
+  }
 }
-
-//this function creates my header that is independant of the objects in my constructor. 14ths in our first tr
+cookieMath();
+//Generates a header for out table populated with times from timeArry--------------------------------------
 function generateHeader(){
   //create a tr element
   var tableRow = document.createElement('tr');
@@ -84,7 +107,7 @@ function generateHeader(){
   tableRow.appendChild(tableHead3);
 }
 
-//function to create a row of cookies
+//creates a row for each city and a td for each time sale value-------------------------------------
 City.prototype.renderTableList = function(){
   // create a tr
   var tableRow = document.createElement('tr');
@@ -110,7 +133,7 @@ City.prototype.renderTableList = function(){
   // append to the tr
   tableRow.appendChild(totalData);
 };
-//function to create a footer
+//function to create a footer with total cookies per hour and grandTotal cookies-----------------------
 function generateFooter(){
   // create a tr
   var tableRow = document.createElement('tr');
